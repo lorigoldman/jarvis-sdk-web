@@ -4,7 +4,7 @@
 
 # IndyKite Client UI SDK
 
-IndyKite is a cloud identity platform built to secure and manage human & non-person (IoT) identities and their data. This repository containts the JavaScript Library packages for [IndyKite Platform](https://indykite.com/) Client SDK.
+IndyKite is a cloud identity platform built to secure and manage human & non-person (IoT) identities and their data. This repository contains JavaScript Library packages for the [IndyKite Platform](https://indykite.com/) client SDK.
 
 This library contains multiple client libraries for each service of the platform.
 
@@ -12,25 +12,25 @@ This library contains multiple client libraries for each service of the platform
 ![npm type definitions](https://img.shields.io/npm/types/@indykiteone/jarvis-sdk-web?style=flat-square)
 [![codecov](https://codecov.io/gh/indykite/jarvis-sdk-web/branch/master/graph/badge.svg?token=33M4Y8GYFV)](https://codecov.io/gh/indykite/jarvis-sdk-web)
 
-In order to access to the platform you must obtain an API key first.
+You need to get an API key before you can access the platform.
 
 ## Terminology
 
 | Definition               | Description                                                                                      |
 | ------------------------ | ------------------------------------------------------------------------------------------------ |
-| Digital Twin             | A digital twin is the digital identity of a physical entity on/in a software/identity system     |
-| Application Space ID     | ID of the application where the digital twin belongs to                                          |
-| Application Agent ID     | ID of the agent which makes the application available for the different calls                    |
-| Tenant ID                | ID of the tenant where the digital twin belongs to. The tenant is belong to an application space |
-| Private Key and Settings | The secret which required to reach the system. Indykite provides the necessary secrets           |
-| Property                 | The digital twin's property (eg.: email, name)                                                   |
-| JWT                      | JSON Web Tokens                                                                                  |
-| Introspect               | A process used to validate the token and to retrieve properties assigned to the token            |
-| Patch property           | Add, change or delete a property of a digital twin                                               |
+| Digital Twin             | The digital identity of a physical entity on/in a software/identity system .    |
+| Application Space ID     | The ID of the application the digital twin belongs to.                                         |
+| Application Agent ID     | The ID of the agent that makes the application available for different calls.                    |
+| Tenant ID                | The ID of the tenant the digital twin belongs to. The tenant belongs to an application space. |
+| Private Key and Settings | The secret required to reach the system. Indykite provides the necessary secrets.           |
+| Property                 | The digital twin's property (e.g., email, name).                                                   |
+| JWT                      | An acronym for JSON Web Tokens.                                                                                  |
+| Introspect               | A process used to validate the token and retrieve properties assigned to the token.            |
+| Patch property           | Used to add, change, or delete a digital twin's property.                                               |
 
 ## Documentation
 
-Visit the IndyKite One Developer Community site for official [IndyKite documentation](https://indykite.one/blog?category=5e3e9297-3451-4b52-91ee-8027dcd1789c) and to find out how to use the entire platform for your project.
+Visit the IndyKite.one Developer Community site for official [IndyKite documentation](https://indykite.one/blog?category=5e3e9297-3451-4b52-91ee-8027dcd1789c), and learn how to use the platform for your project.
 
 ## Installation
 
@@ -58,23 +58,21 @@ jsDelivr
 
 #### CDN .dist.js version
 
-Is build with support for all recent versions of major browsers (Chrome, FF, Safari, Edge, Opera).
+Built with support for all recent versions of major browsers (Chrome, FF, Safari, Edge, Opera).
 
-#### import version
+#### Import version
 
-`import { IKUIInit } from "@indykiteone/jarvis-sdk-web";` Is not prebuild. It's necessary for you to build your application using tools like webpack and babel.
-If you are building apps with frameworks like React, Angular or Vue.js. You have most likely already setup
-a build process (often automatically by the framework), and you don't need to do anything.
+`import { IKUIInit } from "@indykiteone/jarvis-sdk-web";` is not prebuilt. You need to build your application using tools like Webpack and Babel.
+If you're building apps with frameworks like React, Angular, or Vue.js, you most likely have already set up
+a build process (often automatically by the framework), so you don't need to do anything.
 
-In case you need support for Internet Explorer (ES5) please let us know in issues, and we will provide
-you with built sdk or build instructions.
+If you need support for Internet Explorer (ES5), please contact us through the Issues page [issues page](https://github.com/indykite/jarvis-sdk-web/issues), and we'll give you a built SDK or build instructions.
 
 ## API
 
 ##### dist.js package
 
-In case of using the dist package. All functions are exported under the `IK` keyword.
-For example:
+If you are using the dist package, all functions are exported under the `IK` keyword. For example:
 
 ```html
 <script src="https://unpkg.com/@indykiteone/jarvis-sdk-web/dist/iksdkweb.dist.js"></script>
@@ -83,16 +81,15 @@ For example:
 </script
 ```
 
-## Getting Started
+## Getting started
 
 ### Trial
 
-For a trial please contact [IndyKite](https://www.indykite.com/contact-us) to setup and configure the platform.
+For a trial, please contact [IndyKite](https://www.indykite.com/contact-us) to set up and configure the platform.
 
 ### Init
 
-To use the functions from the library you first need to initialize the lib.
-This should be done in entry point to the app.
+To use the functions from the library, you first need to initialize the lib. This should be done in entry point to the app:
 
 ```javascript
 import { IKUIInit } from "@indykiteone/jarvis-sdk-web";
@@ -106,12 +103,12 @@ IKUIInit({
 
 ### Core - UI API
 
-To use UI elements provided by @indykiteone/jarvis-sdk-web library make sure you have done initializing of the library as described above.
-All render functions do network setup calls. So they should be treated as side effects in the JS framework of your application.
+To use UI elements provided by the @indykiteone/jarvis-sdk-web library, make sure you have completed initializing the library as described above.
+All render functions do network setup calls, so they should be treated as side effects in the JS framework of your application.
 
 #### Form rendering
 
-In case you want to render the form without any customization you will only need to call `IKUICore.renderForm` function with `renderElementSelector` and `onSuccess` parameters.
+If you want to render the form without any customization, you only need to call the `IKUICore.renderForm` function with `renderElementSelector` and `onSuccess` parameters:
 
 ```javascript
 import { IKUICore } from "@indykiteone/jarvis-sdk-web";
@@ -141,7 +138,7 @@ const IKForm = () => {
 
 #### Forgotten password flow
 
-It's common that your login screen contains a `Forgotten password` action. But what if you want to render the "Forgotten password" screen as the initial form? It's no problem,you will just need to update your authentication flow a little bit. You need to add a new condition to your `Switch` node with the following condition
+It's common that your login screen contains a `Forgotten password` action. What if you want to render the forgotten password screen as the initial form? You just need to update your authentication flow a little bit. You need to add a new condition to your `Switch` node with the following condition:
 
 ```
 has(session.input) && has(session.input.flow) && session.input.flow == 'forgotten'
@@ -151,7 +148,7 @@ and connect the new branch with the `Forgotten password` node as it's on the ima
 
 ![](/assets/forgotten_password_flow.png)
 
-Then in the rendering function you will add the flow argument and you will start the flow with the "Forgotten password" form.
+Then, in the rendering function, add the flow argument and start the flow with the Forgotten password form:
 
 ```javascript
 import { IKUICore } from "@indykiteone/jarvis-sdk-web";
@@ -183,7 +180,7 @@ const IKForm = () => {
 
 #### Set a new password flow (a flow with OTP)
 
-Also in this case you can use the `IKUICore.renderForm` function. You will only need to pass an `otpToken` property there, like it's in the next example.
+Use the `IKUICore.renderForm` function. You only need to pass an `otpToken` property there, as shown in the example that follows:
 
 ```javascript
 import { IKUICore } from "@indykiteone/jarvis-sdk-web";
@@ -211,9 +208,9 @@ const IKForm = () => {
 };
 ```
 
-#### Replace deafult component
+#### Replace the defult component
 
-Using the `onRenderComponent` property you can tweak an existing element or you can create a totally new one. In this example we will put a small _"Enter the same password here"_ message under the second password input in the registration form.
+Use the `onRenderComponent` property to tweak an existing element or create a totally new one. In the example that follows, we included a small _"Enter the same password here"_ message under the second password input in the registration form:
 
 ```javascript
 import ReactDOM from "react-dom";
@@ -254,7 +251,7 @@ const IKForm = () => {
 };
 ```
 
-You can also replace a component with your custom one. In this example we are replacing the form submit button.
+You can also replace a component with your custom one. In the example that follows, we replaced the form submit button:
 
 ```javascript
 import ReactDOM from "react-dom";
@@ -291,7 +288,7 @@ const IKForm = () => {
 };
 ```
 
-Or you can update an existing component. Here we are adding a custom class to all of our inputs.
+Or, you can update an existing component. Here, we added a custom class to all of our inputs:
 
 ```javascript
 import ReactDOM from "react-dom";
@@ -332,7 +329,7 @@ const IKForm = () => {
 
 ### Handling the OIDC callback
 
-When you want to login with Google or Facebook you need to pass the `redirectUri` property to your `IKUICore.renderForm` function call. After you finish the login/registration with the external OIDC provider you will be redirected to this URI. On this route you have to call `IKUIOidc.oidcCallback()` function which will process the returned values from the OIDC provider and return you an object. You have to check, whether this object contains a `redirect_to` property and if so, you have to redirect your page to this URI. If the object does't have such property, then the object should contain the access token.
+To log in with Google or Facebook, you need to pass the `redirectUri` property to your `IKUICore.renderForm` function call. After you finish the login/registration with the external OIDC provider, you're redirected to this URI. On this route, call the `IKUIOidc.oidcCallback()` function, which will process the returned values from the OIDC provider and return an object to you. Determine whether this object contains a `redirect_to` property, and if so, redirect your page to this URI. If the object doesn't have such a property, then the object should contain the access token:
 
 ```javascript
 import React from "react";
@@ -358,11 +355,11 @@ const Callback = () => {
 };
 ```
 
-> Keep in mind that after you redirect your page to the URI from the `redirect_to` property and you call there the `IKUICore.renderForm` function, you have to call that function only once (especially when you are using React ensure your `useEffect` is called only once). Otherwise the data from the OIDC provider will be lost.
+After you redirect your page to the URI from the `redirect_to` property, and you call the `IKUICore.renderForm` function, you only need to call that function once. If you are using React, ensure your `useEffect` is called only once. Otherwise, the data from the OIDC provider will be lost.
 
-### OIDC Provider
+### OIDC provider
 
-When you act as an OIDC provider, you have to call `IKUIOidc.handleOidcOriginalParamsAndRedirect` function. For this case it's good to have a special route so you know you are redirected here from a different page. This function will store its actual state and will redirect you to a route which you usually use for logging users.
+When you act as an OIDC provider, you have to call `IKUIOidc.handleOidcOriginalParamsAndRedirect` function. It's good to have a special route so you know you are redirected here from a different page. This function will store its actual state and redirect you to a route  you usually use for logging users:I 
 
 ```javascript
 import React from "react";
@@ -380,29 +377,27 @@ const Oidc = () => {
 
 ## TypeScript
 
-The library has build in types and is compatible with typescript projects.
+The library has built-in types is compatible with Typescript projects.
 
-## SDK Development
+## SDK development
 
-Look into using `npm link` in case you want to develop the lib with the app  
-https://medium.com/dailyjs/how-to-use-npm-link-7375b6219557
+If you want to develop the lib with the app, look into using `npm link`.
 
-In case you update the response don't forget to update CommonJS docs and also
-any typescript definitions.
+If you update the response, remember to update CommonJS docs and any Typescript definitions.
 
-Commit message follows [commit guidelines](./doc/guides/commit-message.md#commit-message-guidelines)
+Here is an example of a commit message [commit guidelines]: ./doc/guides/commit-message.md#commit-message-guidelines
 
-Install husky pre-commit hooks
+Install husky pre-commit hooks:
 `npm install & npm run prepare`
 
-### Localisation development
+### Localization development
 
-All the messages and keys are stored in the localise.com app under project Indykite
+All the messages and keys are stored in the localise.com app under project Indykite:
 https://app.lokalise.com/project/5428220160b483af770945.85338584/
 
-All the keys for only UI SDK should have tag `uisdk`.
+All the keys for the UI SDK only should have tag `uisdk`.
 
-To export new localisation keys and error messages. Go to download page
+To export new localization keys and error messages, go to this download page:
 https://app.lokalise.com/download/5428220160b483af770945.85338584/
 
 Download settings are as follows:
@@ -415,34 +410,34 @@ Plural format: ICU
 Placeholder format: ICU
 ```
 
-Click on build and download. Put the final JSONs into folder `lib/services/core/locale/src`
-See file `.github/export-settings.png` for the export settings from localise.
+Click build and download. Put the final JSONs into the `lib/services/core/locale/src`folder.
+See the`.github/export-settings.png` file for the export settings from localize.
 
 ## Roadmap
 
-Checkout our roadmap on our [issues page](https://github.com/indykite/jarvis-sdk-web/issues)
+Check out our roadmap on our [issues page](https://github.com/indykite/jarvis-sdk-web/issues)
 
-## Contributing
+## Contributing to this project
 
 [Contribution guidelines for this project](contributing.md)
 
-## Support, Feedback, Connect with other developers
+## Support, feedback, connect with other developers
 
-We'd love to have you connect with us or other community developers over at [IndyKite.one](https://indykite.one)
+Connect with us or other community developers at [IndyKite.one](https://indykite.one).
 
-Feel free to file a bug, submit an issue or give us feedback on our [issues page](https://github.com/indykite/jarvis-sdk-web/issues)
+Feel free to file a bug, submit an issue, or give us feedback on our [issues page](https://github.com/indykite/jarvis-sdk-web/issues).
 
-## Vulnerability Reporting
+## Vulnerability reporting
 
 [Responsible Disclosure](https://www.indykite.com/security)
 
 ## Changelog
 
-Coming Soon!
+Coming soon!
 
 ## Contributers / Acknowledgements
 
-Coming Soon!
+Coming soon!
 
 ## What is IndyKite
 
